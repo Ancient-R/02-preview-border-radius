@@ -24,33 +24,33 @@ const BorderComponent = ({ borders, setBorders }) => {
 
     return (
         <form className="form">
+            <h2 className="form-title">Valores de los bordes</h2>
             <div className="form-group">
-                <label htmlFor="" className="form-label">Border top lef</label>
                 <input 
                     type="number" 
                     className="form-input"
+                    placeholder="Border top lef"
                     name="topLeft"
                     value={ topLeft }
                     onChange= { handleInputChange }
                 />
             </div>
-            
-            <div className="form-group">
-                <label htmlFor="" className="form-label">Border top rigth</label>
                 <input 
                     type="number" 
                     className="form-input"
+                    placeholder="Border top right"
                     name="topRight"
                     value={ topRight }
                     onChange= { handleInputChange }
                 />
+            <div className="form-group">
             </div>
 
             <div className="form-group">
-                <label htmlFor="" className="form-label">Border bottom lef</label>
                 <input 
                     type="number" 
                     className="form-input"
+                    placeholder="Border bottom lef"
                     name="bottomLeft"
                     value={ bottomLeft }
                     onChange= { handleInputChange }
@@ -58,10 +58,10 @@ const BorderComponent = ({ borders, setBorders }) => {
             </div>
 
             <div className="form-group">
-                <label htmlFor="" className="form-label">Border bottom rigth</label>
                 <input 
                     type="number" 
                     className="form-input"
+                    placeholder="Border bottom right"
                     name="bottomRight"
                     value={ bottomRight }
                     onChange= { handleInputChange }
@@ -71,7 +71,9 @@ const BorderComponent = ({ borders, setBorders }) => {
             <button 
                 className="form-clear"
                 onClick={ handleReset }
-            >Limpiar Campos</button>
+            >
+                <i className="fas fa-backspace"></i>
+            </button>
 
         </form>
     );
