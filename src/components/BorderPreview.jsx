@@ -1,10 +1,44 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import BorderClasses from './BorderClasses';
 
-const BorderPreview = () => {
+const BorderPreview = ({ borders }) => {
+
+    const { topLeft, topRight, bottomLeft, bottomRight } = borders;
+
+    const borderRef = useRef();
+
+    const handleClaseInput = () => {
+        if( topLeft > 0 ){
+            borderRef.current.style.borderTopLeftRadius = topLeft + "px";
+        }
+
+        if( topRight > 0 ){
+            borderRef.current.style.borderTopRightRadius = topRight + "px";
+        }
+        
+        if( bottomLeft > 0 ){
+            borderRef.current.style.borderBottomLeftRadius = bottomLeft + "px";
+        }
+
+        if( bottomRight > 0 ){
+            borderRef.current.style.borderBottomRightRadius = bottomRight + "px";
+        }
+
+    }
+
+    useEffect( () => {
+        handleClaseInput();
+    }, [ topLeft, topRight, bottomLeft, bottomRight ]);
+
     return (  
-        <div className="border-preview">
+        <div 
+            className="border-preview"
+            ref={ borderRef }
+        >
             <div className="border-code">
-                <p>border-radius: 10px 5px 7px 2px</p>
+                <BorderClasses 
+                    borders={ borders }
+                />
             </div>
         </div>
     );
