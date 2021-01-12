@@ -1,6 +1,27 @@
 import React from 'react'
 
-const BorderComponent = () => {
+const BorderComponent = ({ borders, setBorders }) => {
+
+    const { topLeft, topRight, bottomLeft, bottomRight } = borders;
+
+    const handleInputChange = e => {
+        setBorders({
+            ...borders,
+            [ e.target.name ] : e.target.value
+        });
+    }
+
+    const handleReset = (e) => {
+        e.preventDefault();
+        setBorders({
+            topLeft: '',
+            topRight: '',
+            bottomLeft: '',
+            bottomRight: ''
+        });
+    }
+
+
     return (
         <form className="form">
             <div className="form-group">
@@ -8,6 +29,9 @@ const BorderComponent = () => {
                 <input 
                     type="number" 
                     className="form-input"
+                    name="topLeft"
+                    value={ topLeft }
+                    onChange= { handleInputChange }
                 />
             </div>
             
@@ -16,6 +40,9 @@ const BorderComponent = () => {
                 <input 
                     type="number" 
                     className="form-input"
+                    name="topRight"
+                    value={ topRight }
+                    onChange= { handleInputChange }
                 />
             </div>
 
@@ -24,6 +51,9 @@ const BorderComponent = () => {
                 <input 
                     type="number" 
                     className="form-input"
+                    name="bottomLeft"
+                    value={ bottomLeft }
+                    onChange= { handleInputChange }
                 />
             </div>
 
@@ -32,8 +62,16 @@ const BorderComponent = () => {
                 <input 
                     type="number" 
                     className="form-input"
+                    name="bottomRight"
+                    value={ bottomRight }
+                    onChange= { handleInputChange }
                 />
             </div>
+
+            <button 
+                className="form-clear"
+                onClick={ handleReset }
+            >Limpiar Campos</button>
 
         </form>
     );
