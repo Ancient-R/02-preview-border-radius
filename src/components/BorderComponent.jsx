@@ -2,8 +2,10 @@ import React from 'react'
 
 const BorderComponent = ({ borders, setBorders }) => {
 
+    //  Props
     const { topLeft, topRight, bottomLeft, bottomRight } = borders;
 
+    // Función para actualizar el estado del input
     const handleInputChange = e => {
         setBorders({
             ...borders,
@@ -11,6 +13,7 @@ const BorderComponent = ({ borders, setBorders }) => {
         });
     }
 
+    //  Función para reestablecer todo el formulario
     const handleReset = (e) => {
         e.preventDefault();
         setBorders({

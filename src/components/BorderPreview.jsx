@@ -1,12 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import BorderClasses from './BorderClasses';
 
 const BorderPreview = ({ borders }) => {
 
+    // Props
     const { topLeft, topRight, bottomLeft, bottomRight } = borders;
 
+    // Referencia para actualizar el borde del elemento .border-preview
     const borderRef = useRef();
 
+    // Función para actualizar el borde del elemento .border-preview
     const handleClaseInput = () => {
         if( topLeft > 0 ){
             borderRef.current.style.borderTopLeftRadius = topLeft + "px";
@@ -32,6 +35,8 @@ const BorderPreview = ({ borders }) => {
 
     useEffect( () => {
         handleClaseInput();
+
+        // eslint-disable-next-line
     }, [ topLeft, topRight, bottomLeft, bottomRight ]);
 
     return (  

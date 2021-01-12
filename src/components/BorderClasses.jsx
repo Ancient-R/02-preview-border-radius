@@ -2,11 +2,16 @@ import React, { useRef } from 'react'
 
 const BorderClasses = ({ borders }) => {
 
+    // Referencia para poder leer el contenido del .container-class
     const refClass = useRef();
+
+    // Referencia para mostrar un toast al momento de copiar el código
     const toastRef = useRef();
 
+    // props
     const { topLeft, topRight, bottomLeft, bottomRight } = borders;
 
+    // Función para copiar el contenido del .container-class
     const handleCopy = () => {
         if( refClass.current.textContent.trim() !== ''){
             const styless = refClass.current.textContent.split('E');
