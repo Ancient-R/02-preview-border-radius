@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import BorderComponent from './components/BorderComponent';
 import BorderPreview from './components/BorderPreview';
+import Header from './components/Header';
 
 function App() {
 
@@ -12,15 +13,18 @@ function App() {
   });
 
   return (
-    <div className="container">
-      <BorderComponent 
-        borders={ borders }
-        setBorders={ setBorders }
-      />
-      <BorderPreview 
-        borders={ borders }
-      />
-    </div>
+    <>
+      <Header />
+      <div className="container">
+        <BorderComponent 
+          borders={ borders }
+          setBorders={ setBorders }
+        />
+        <BorderPreview 
+          borders={ borders }
+        />
+      </div>
+    </>
   );
 }
 
