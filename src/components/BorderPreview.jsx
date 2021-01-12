@@ -24,6 +24,10 @@ const BorderPreview = ({ borders }) => {
             borderRef.current.style.borderBottomRightRadius = bottomRight + "px";
         }
 
+        if( topLeft === '' && topLeft === topRight && topLeft === bottomLeft && topLeft === bottomRight ){
+            borderRef.current.style.borderRadius = '0';
+        }
+
     }
 
     useEffect( () => {
